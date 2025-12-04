@@ -1,13 +1,25 @@
-import Riddle from "../riddles/r1.js"
+import Riddle from "../riddles/all.js"
 
-function askRiddle(riddleObj){
-    console.log(Riddle.name, Riddle.taskDescription);
-    console.log("display the choices as numbered options ");
-}
-function measureSolveTime(fn){
-    let cornat = Riddle.timestart.push(time);
-    fn()
-    let end = Riddle.timend.push(time);
-    return end - cornat;
+import {addSolveTime} from './utility.js'
+
+export function askRiddle(riddleObj){
+    
+    for(let ridd of riddleObj){
+        {
+        console.log(`name is: ${ridd.name} > taskDescription: ${ridd.taskDescription}`);
+        }
+    }
 }
 
+export function measureSolveTime(fn){
+    const start = Date.now();
+    console.log("starting timer...");
+
+    fn(Riddle)
+    const ms = Date.now();
+    console.log(ms - start);
+
+}
+
+
+measureSolveTime()
